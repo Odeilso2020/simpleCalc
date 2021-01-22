@@ -169,6 +169,80 @@ public class MainActivity extends AppCompatActivity {
                 Total = 0;
             }
         });
+
+        // Botões de ação
+        btnSoma.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if(Result[1] == 0){
+                    operacao = "soma";
+                    proximoNumero();
+                }else{
+                    calcular();
+                    operacao = "soma";
+                    continuaConta();
+                }
+            }
+        });
+
+        btnSub.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if(Result[1] == 0){
+                    operacao = "sub";
+                    proximoNumero();
+                }else{
+                    calcular();
+                    operacao = "sub";
+                    continuaConta();
+                }
+            }
+        });
+
+        btnMult.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if(Result[1] == 0){
+                    operacao = "mult";
+                    proximoNumero();
+                }else{
+                    calcular();
+                    operacao = "mult";
+                    continuaConta();
+                }
+            }
+        });
+
+        btnDiv.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if(Result[1] == 0){
+                    operacao = "div";
+                    proximoNumero();
+                }else{
+                    calcular();
+                    operacao = "div";
+                    continuaConta();
+                }
+            }
+        });
+
+        btnIgual.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                calcular();
+                exibirResultado();
+                Total = 0;
+                count = 0;
+            }
+        });
+
+        btnLimp.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                limpar();
+            }
+        });
     }
 
     // Exibição em tela
@@ -186,6 +260,14 @@ public class MainActivity extends AppCompatActivity {
             String tela = String.valueOf(Result[i]);
             RESULTSCREEN.setText(tela);
         }
+    }
+
+    private void continuaConta(){
+        exibirResultado();
+        Result[0] = Total;
+        Result[1] = 0;
+        Total = 0;
+        count = 0;
     }
 
     // Passa o array para a proxima possição
